@@ -1,0 +1,7 @@
+在edge浏览器中，会自动将部分数字显示为超链接
+
+解决方案：
+在head中添加如下代码：
+<meta name="format-detection" content="telephone=no">
+
+原文链接：https://stackoverflow.com/questions/23130778/how-to-remove-phone-number-link-on-iphone
