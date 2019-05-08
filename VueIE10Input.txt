@@ -1,0 +1,26 @@
+表单input在ie10浏览器，输入信息，按enter键时会导致浏览器刷新。
+解决办法，两步：
+（1）input里面增加keyup监听键盘enter事件
+（2）有form表单时，在form表单最下面增加一个隐藏的input
+
+<form>
+	<el-form-item>
+		<el-input class="searchDb"
+				  v-model.trim="device"
+				  placeholder="请输入信息"
+				  @keyup.enter.native="doEnter($event)"
+				  clearable>
+		  <el-button type="success" @click="onSendMessage" plain slot="append" class="searchNow">发送</el-button>
+		</el-input>
+    </el-form-item>
+    <el-input id="hiddenText" type="text" style="display:none"></el-input>
+</form>
+
+// 键盘enter事件
+doEnter(e) {
+	// console.log(e);
+	if (e.keyCode === 13) {
+	  // console.log('enter down');
+	  // 调方法
+	}
+}
