@@ -1,0 +1,26 @@
+element-ui 的分页组件（Pagination），在IE10浏览器，输入页数后，按键盘enter键会导致页面刷新。
+
+解决方案：
+（1）首先判断IE浏览器，获取键盘事件
+（2）获取输入的值
+（3）将值转换成Number类型
+如果是非数值，会转换成NaN，数值类型还要考虑负数、0
+（4）获取当前总页数，计算后有可能得到小数，向上取整，因为小数会再占一页
+
+<Pagination @keyup.enter.native="doEnter($event)"></Pagination>
+
+// 键盘enter事件
+doEnter(e) {
+if (isIE && e.keyCode === 13) {
+  let v = e.target.value
+  let nv = Number(v)
+  if (nv && validateIsNumber(nv)) {
+	if (nv > Math.ceil(总条数 / 页大小)) {
+	  nv = Math.ceil(总条数 / 页大小)
+	}
+	// do sth
+  } else {
+	// do sth
+  }
+}
+}
