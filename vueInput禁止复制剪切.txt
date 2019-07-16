@@ -1,0 +1,3 @@
+vue Input½ûÖ¹¸´ÖÆ¼ôÇĞ
+
+oncopy="return false" oncut="return false"
